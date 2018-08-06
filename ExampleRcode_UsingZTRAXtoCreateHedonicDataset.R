@@ -65,9 +65,9 @@ if(prototyping){
 #    2) Building table
 #    3) BuildingAreas
 
-col_namesMain <- layoutZAsmt[layoutZAsmt$TableName == 'utMain', 'FieldName']
-col_namesBldg <- layoutZAsmt[layoutZAsmt$TableName == 'utBuilding', 'FieldName']
-col_namesBldgA <- layoutZAsmt[layoutZAsmt$TableName == 'utBuildingAreas', 'FieldName']
+col_namesMain <- layoutZAsmt[layoutZAsmt$TableName == 'utMain', 'FieldName'][[1]]
+col_namesBldg <- layoutZAsmt[layoutZAsmt$TableName == 'utBuilding', 'FieldName'][[1]]
+col_namesBldgA <- layoutZAsmt[layoutZAsmt$TableName == 'utBuildingAreas', 'FieldName'][[1]]
 
 ######################################################################
 # Pull address, geographic, lot size, and tax data from main table
@@ -207,8 +207,8 @@ attr <- merge(attr, sqft, by = c("RowID", "BuildingOrImprovementNumber"))
 #      1) PropertyInfo table provided ImportParcelID to match transaction to assessor data loaded above
 #      2) Main table in Ztrans database provides information on real estate events
 
-col_namesProp <- layoutZTrans[layoutZTrans$TableName == 'utPropertyInfo', 'FieldName']
-col_namesMainTr <- layoutZTrans[layoutZTrans$TableName == 'utMain', 'FieldName']
+col_namesProp <- layoutZTrans[layoutZTrans$TableName == 'utPropertyInfo', 'FieldName'][[1]]
+col_namesMainTr <- layoutZTrans[layoutZTrans$TableName == 'utMain', 'FieldName'][[1]]
 
 
 ###############################################################################
